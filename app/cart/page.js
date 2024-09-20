@@ -10,6 +10,7 @@ import { CartContext } from "@/components/CartContext"
 import axios from "axios"
 import Table from "@/components/Table"
 import Input from "@/components/Input"
+import Image from "next/image"
 
 const ColumnsWrapper = styled.div`
     display: grid;
@@ -163,7 +164,7 @@ export default function CartPage(){
                                         <tr key={product._id}>
                                             <ProductCell>
                                                 <ProductImageBox>
-                                                    <img src={product.images[0]} />
+                                                    <Image src={product.images[0]} alt="Product Image" width={200} height={200}/>
                                                 </ProductImageBox>
                                                 {product.title}
                                             </ProductCell>

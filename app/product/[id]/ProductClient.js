@@ -1,4 +1,3 @@
-// app/products/[id]/ProductClient.js (or .ts if using TypeScript)
 'use client';
 
 import Center from "@/components/Center";

@@ -1,15 +1,11 @@
 'use client';
 
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { CartContext } from '@/components/CartContext';
-import axios from 'axios';
-import Head from 'next/head';
-import Header from '@/components/Header';
-import Center from '@/components/Center';
-import { Box } from '../cart/page';
 
-const Payment = () => {
+
+const PaymentContext = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const orderId = searchParams.get('orderId');
@@ -75,15 +71,20 @@ const Payment = () => {
 
   return (
     <>
-      <Head>
-        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-      </Head>
       <div>
         <h1>Processing Payment...</h1>
       </div>
     </>
   );
 };
+
+const Payment = ()=>{
+  return(
+    <Suspense fallback={<div>Loading payment...</div>}>
+      <PaymentContext/>
+    </Suspense>
+  )
+}
 
 export default Payment;
 

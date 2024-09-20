@@ -59,7 +59,7 @@ const Price = styled.div`
     }
 `
 
-export default function ProductBox({_id,title,description,price,images}){
+export default function ProductBox({_id,title,price,images}){
     const {addProduct} = useContext(CartContext)
     const url = '/product/'+_id
     const imageSrc = (images && images.length > 0) ? images[0] : '/path/to/default/image.jpg';
